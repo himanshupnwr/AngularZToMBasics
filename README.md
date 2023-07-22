@@ -37,6 +37,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Change detection is a process to update the html of an app once anything changes in the backend
 
 change detection occurs
+
 1. When the app is initialized
 2. During change in our data
 3. Manually triggering change detection
@@ -46,6 +47,7 @@ To stop this we can add `import { enableProdMode } from '@angular/core';` in `ma
 This will disabe the change detection running two times at the time of initialization
 
 ## Javascript Expressions
+
 A javascript is a single line of code that can be evaluated to a single output value. The value can be a number, a string or a logical value.
 
 Expressions in angular is displayed using curly brackets {{}}
@@ -60,6 +62,7 @@ expressions can also contain method calls.
 `{{name.toUpperCase}}, {{getName()}} <p>{{15+13}</p>`
 
 ## Property Binding
+
 [attribute]
 
 in component ts - `imgURL = "https://url"` then in template `<img [src] = imgURL/>`
@@ -68,6 +71,7 @@ We can apply property binding to any attribute in out documents
 If angular comes across an attribute with square brackets, it'll process the attribute before rendering.
 
 ## Event Binding
+
 `<input (keyup) = "changeImage($event)" [value]="imgURL">`
 
 the event is passed to the component to pass data to the method
@@ -80,6 +84,7 @@ the event is passed to the component to pass data to the method
 }`
 
 ## Components
+
 creating a component -> `ng generate component`
 
 adding decorator at class level -> `import {Input} from '@angular/core';`
@@ -112,11 +117,13 @@ listen to event in parent component
 logImg method will be in the parent component class
 
 ## Content Projection - Passing data from parent to child component
+
 Content projection is the process of loading content inserted into a component tag.
 
-Angular creates a custom element for handling most of the work which is <ng-content></ng-content> element
+Angular creates a custom element for handling most of the work which is ```<ng-content></ng-content>``` element
 
 ## LifeCycle Functions
+
 Angular gives us the option of having refined control over the changes in our components through lifecycle hooks. 
 They are functions that run during events and our components. Specifically they run when components are experiencing changes
 
@@ -137,9 +144,11 @@ ngAfterViewInit - implements interface AfterViewInit
 ngAfterViewChecked - implements interface AfterViewChecked
 
 ## View Vs Content
+
 <img src="src\Images\ViewVsContent.png" alt="AOT" width="700" height="300" title="AOT">
 
 ## Pipes
+
 A pipe is a function for transforming a value in the template. Pipes are not specific to a componenet like a function, we can use it everywhere. Pipes are available in the browser module.
 
 The purpose of the pipe is to transform the value for the templates. The original value will remain the same in the class.
@@ -147,6 +156,7 @@ The purpose of the pipe is to transform the value for the templates. The origina
 we can use prebuilt pipes or create our own pipes. Json pipe is a pipe used only for debugging and showing json data in template.
 
 ## Directives
+
 Attribute Directives - changes the appearance or the behaviour of an element
 Structural Directives - Add or remove elements from the DOM
 
@@ -154,4 +164,14 @@ ngClass directive - its an attribute directive that allow is to change the class
 
 `<button (click) = "blueClass = !blueClass" [ngClass]="{blue:blueClass}">Change</button>`
 
-ngStyle directive - 
+ngStyle directive - `<button (click)="blueClass = !blueClass" [ngClass]="{ blue: blueClass }" [ngStyle]="{ 'font-size.px': fontSize }">Change</button>`
+
+## ng-template
+
+In Angular we might not want to display the content immediately but we wants to display it based on a condition
+
+By wrapping the content with ng-template we tell angular that be aware of the element but don't display it and display it only conditionally
+
+## structural directives
+
+ngif and ngfor are examples of structural directives
